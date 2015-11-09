@@ -10,8 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-    String imadeachange="see my change!!!!";
-    //This is a change comment
+    //This is demo change for GitHub by Giorgos
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
