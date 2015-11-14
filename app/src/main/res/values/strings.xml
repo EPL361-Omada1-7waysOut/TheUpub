@@ -1,13 +1,26 @@
 <resources>
     <string name="app_name">TheUpub</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_upub_info">Info</string>
-    <string name="Menu">Menu</string>
+
+
+    <!--Navigation Menu names-->
     <string name="Offers">Offers</string>
     <string name="Info">Info</string>
+    <string name="Menu">Menu</string>
     <string name="Events">Events</string>
+
+
+
+    <string name="title_activity_the_upub">TheUpub</string>
+    <string name="EnterButton">Enter</string>
+
+
+    <!--Titles of Activities-->
+    <string name="title_activity_upub_info">Info</string>
+    <string name="title_activity_offers">Offers</string>
+    <string name="title_activity_the_menu">Menu</string>
+    <string name="title_activity_events">Events</string>
 
 </resources>

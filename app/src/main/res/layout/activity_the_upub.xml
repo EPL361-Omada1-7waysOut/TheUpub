@@ -1,0 +1,29 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/MainBackround"
+    tools:context="com.example.georg.theupub.TheUpub">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="321dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/upub"
+        android:layout_gravity="center_horizontal|top" />
+
+    <Button
+        android:layout_width="245dp"
+        android:layout_height="138dp"
+        android:text="@string/EnterButton"
+        android:textColor="@color/StaringText"
+        android:background="@color/SquareEnd"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:id="@+id/EnterButton"
+        android:layout_gravity="center_horizontal|bottom" />
+
+
+</FrameLayout>
