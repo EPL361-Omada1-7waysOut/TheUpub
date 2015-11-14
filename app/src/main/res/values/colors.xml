@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="MainBackround">#484d56</color>
+    <color name="UpperMain">#1e2024</color>
+
+    <color name="SquareStart">#000000</color>
+    <color name="SquareCenter">#000000</color>
+    <color name="SquareEnd">#606060</color>
+
 </resources>

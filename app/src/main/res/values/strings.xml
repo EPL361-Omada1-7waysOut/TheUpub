@@ -4,7 +4,7 @@
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_upub_info">UpubInfo</string>
+    <string name="title_activity_upub_info">Info</string>
     <string name="Menu">Menu</string>
     <string name="Offers">Offers</string>
     <string name="Info">Info</string>
