@@ -6,7 +6,7 @@
     <color name="MainBackround">#13131a</color>
     <color name="UpperMain">#1e2024</color>
 
-    <color name="SquareStart">#000000</color>
+    <color name="SquareStart">#ff0000</color>
     <color name="SquareCenter">#000000</color>
     <color name="SquareEnd">#606060</color>
     <color name="StaringText">#ffffff</color>

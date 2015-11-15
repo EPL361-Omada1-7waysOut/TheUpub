@@ -74,16 +74,16 @@ public class Offers extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Navigation menu
         int id = item.getItemId();
 
-        if (id == R.id.nav_Info) {
+        if (id == R.id.nav_Info) {//to info activity
             startInfo();
-        } else if (id == R.id.nav_Menu) {
+        } else if (id == R.id.nav_Menu) {//to menu activity
             startMenu();
-        } else if (id == R.id.nav_Offers) {
+        } else if (id == R.id.nav_Offers) {//to offers activity
             startOffers();
-        } else if (id == R.id.nav_Events) {
+        } else if (id == R.id.nav_Events) {//to events activity
             startEvents();
         }
 
@@ -92,27 +92,26 @@ public class Offers extends AppCompatActivity
         return true;
     }
 
-    public void startInfo(){
+    public void startInfo(){//starting Activity Info
         Intent intent=new Intent(this,UpubInfo.class);
         startActivity(intent);
         this.finish();
     }
 
-    public void startMenu(){
+    public void startMenu(){//to menu activity
         Intent intent=new Intent(this,TheMenu.class);
         startActivity(intent);
         this.finish();
     }
-    public void startOffers(){
+    public void startOffers(){//to offers activity
         Intent intent=new Intent(this,Offers.class);
         startActivity(intent);
         this.finish();
     }
 
-    public void startEvents(){
+    public void startEvents(){//to events activity
         Intent intent=new Intent(this,Events.class);
         startActivity(intent);
         this.finish();
     }
 }
-
