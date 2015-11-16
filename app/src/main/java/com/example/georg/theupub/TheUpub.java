@@ -18,6 +18,7 @@ public class TheUpub extends AppCompatActivity {
 
         Button btnEnter=(Button) findViewById(R.id.EnterButton);
         btnEnter.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
              startInfo();

@@ -12,9 +12,9 @@
     <string name="Events">Events</string>
 
 
-
+    <!--Intro screen titles-->
     <string name="title_activity_the_upub">TheUpub</string>
-    <string name="EnterButton">Enter</string>
+    <string name="EnterButton">ENTER</string>
 
 
     <!--Titles of Activities-->
