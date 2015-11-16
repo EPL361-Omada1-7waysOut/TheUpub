@@ -10,6 +10,8 @@
             android:title="@string/Offers" />
         <item android:id="@+id/nav_Events" android:icon="@drawable/events"
             android:title="@string/Events" />
+        <item android:id="@+id/nav_Profile" android:icon="@drawable/profile"
+            android:title="@string/Profile" />
     </group>
 
 

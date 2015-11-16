@@ -11,7 +11,7 @@
         android:layout_width="700dp"
         android:layout_height="match_parent"
         android:id="@+id/backround"
-        android:src="@drawable/intropic"
+        android:src="@drawable/intropic1"
         android:layout_gravity="center_horizontal|top" />
 
     <ImageView

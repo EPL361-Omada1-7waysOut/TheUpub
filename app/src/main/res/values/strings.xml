@@ -10,6 +10,7 @@
     <string name="Info">Info</string>
     <string name="Menu">Menu</string>
     <string name="Events">Events</string>
+    <string name="Profile">Profile</string>
 
 
     <!--Intro screen titles-->
@@ -22,5 +23,6 @@
     <string name="title_activity_offers">Offers</string>
     <string name="title_activity_the_menu">Menu</string>
     <string name="title_activity_events">Events</string>
+    <string name="title_activity_profile">Profile</string>
 
 </resources>

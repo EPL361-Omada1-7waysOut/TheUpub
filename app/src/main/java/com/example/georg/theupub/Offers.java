@@ -85,6 +85,8 @@ public class Offers extends AppCompatActivity
             startOffers();
         } else if (id == R.id.nav_Events) {//to events activity
             startEvents();
+        } else if (id == R.id.nav_Profile) {//to events activity
+            startProfile();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -111,6 +113,12 @@ public class Offers extends AppCompatActivity
 
     public void startEvents(){//to events activity
         Intent intent=new Intent(this,Events.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void startProfile(){//to Profile activity
+        Intent intent=new Intent(this,ProfileActivity.class);
         startActivity(intent);
         this.finish();
     }
