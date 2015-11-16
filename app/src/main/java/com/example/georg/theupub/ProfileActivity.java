@@ -15,16 +15,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String sample_user = "John Smith Id:1234";
 
     /*
     * This method generates a Bitmap image from a
     * BitMatrix.
     * */
+
+
     public static Bitmap toBitmap(BitMatrix matrix){
         int height = matrix.getHeight();
         int width = matrix.getWidth();
@@ -52,6 +62,25 @@ public class ProfileActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        QRCodeWriter writer = new QRCodeWriter();
+
+        try {
+            // BitMatrix matrix = writer.encode(
+            //  "Giorgos Demosthenous 953157", BarcodeFormat.QR_CODE, 400, 400);
+            BitMatrix matrix = writer.encode(
+                    sample_user, BarcodeFormat.QR_CODE, 400, 400);
+            Bitmap qrcode_bmp = toBitmap(matrix);
+            ImageView iv = (ImageView) findViewById(R.id.grImage_id);
+            iv.setImageResource(R.drawable.qr);
+            iv.setImageBitmap(qrcode_bmp);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @Override
