@@ -30,6 +30,6 @@
     <string name="DefaultPoints">0\nPoints</string>
 
     <!--Info Activity-->
-    <string name="DefaultInfo">Info</string>
+    <string name="DefaultInfo">Info </string>
 
 </resources>
