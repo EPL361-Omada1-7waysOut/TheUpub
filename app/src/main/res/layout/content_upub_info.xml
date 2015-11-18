@@ -10,5 +10,24 @@
     android:background="@color/MainBackround"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_upub_info" tools:context="com.example.georg.theupub.UpubInfo">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/DefaultInfo"
+                android:textColor="@color/StaringText"
+                android:textAlignment="center"
+                android:textSize="@dimen/TextSize"
+                android:id="@+id/Points"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="182dp" />
 
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
