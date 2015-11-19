@@ -16,18 +16,144 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+
+            <!--Andress-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/DefaultInfo"
+                android:text="@string/Info_Title_Andress"
                 android:textColor="@color/StaringText"
-                android:textAlignment="center"
-                android:textSize="@dimen/TextSize"
-                android:id="@+id/Points"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="182dp" />
+                android:textSize="@dimen/TitleSize"
+                android:id="@+id/TitleAndress" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Andress"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleAndress"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Andress" />
 
+            <!--Opening hours-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_OpenHours"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/Andress"
+                android:id="@+id/TitleOpenHours" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_OpenHours"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleOpenHours"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/OpenHours" />
+
+        <!--Telephone-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_Telephone"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/OpenHours"
+                android:id="@+id/TitleTelephone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Telephone"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleTelephone"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Telephone" />
+
+            <!--Email-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_Email"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/Telephone"
+                android:id="@+id/TitleEmail" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Email"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleEmail"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Email" />
+            <!--Services-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_Services"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/Email"
+                android:id="@+id/TitleServices" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Services"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleServices"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Services" />
+
+            <!--Managers-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_Managers"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/Services"
+                android:id="@+id/TitleManagers" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Managers"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleManagers"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Managers" />
+
+            <!--Parking-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Title_Parking"
+                android:textColor="@color/StaringText"
+                android:textSize="@dimen/TitleSize"
+                android:layout_below="@id/Managers"
+                android:id="@+id/TitleParking" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Info_Parking"
+                android:textColor="@color/StaringText"
+                android:layout_below="@id/TitleParking"
+                android:textSize="@dimen/InfoSize"
+                android:id="@+id/Parking" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

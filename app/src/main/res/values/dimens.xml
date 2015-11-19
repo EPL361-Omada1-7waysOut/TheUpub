@@ -8,4 +8,8 @@
     <dimen name="nav_header_height">160dp</dimen>
 
     <dimen name="TextSize">50dp</dimen>
+
+    <!--Info Activity Dimensions-->
+    <dimen name="InfoSize">25dp</dimen>
+    <dimen name="TitleSize">40dp</dimen>
 </resources>

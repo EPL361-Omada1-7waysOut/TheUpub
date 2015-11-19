@@ -30,6 +30,19 @@
     <string name="DefaultPoints">0\nPoints</string>
 
     <!--Info Activity-->
-    <string name="DefaultInfo">Info </string>
+    <string name="Info_Title_Andress">Andress:</string>
+    <string name="Info_Andress">University Avenue 1 2109\n Nicosia,Cyprus</string>
+    <string name="Info_Title_Telephone">Telephone:</string>
+    <string name="Info_Telephone">22 895132</string>
+    <string name="Info_Title_OpenHours">Open Hours:</string>
+    <string name="Info_OpenHours">Mon-Fri 8:00am-12:00am\nSat-Sun 4:00pm-12:00pm</string>
+    <string name="Info_Title_Parking">Parking:</string>
+    <string name="Info_Parking">Availiable</string>
+    <string name="Info_Title_Managers">Managers:</string>
+    <string name="Info_Managers">Marios Christodoulou\nDimitris Karpasitis\nSavvas Anaksagorou</string>
+    <string name="Info_Title_Services">Services:</string>
+    <string name="Info_Services">Walks-Ins Welcome,Good For Groups and Outdoor Seating</string>
+    <string name="Info_Title_Email">Email:</string>
+    <string name="Info_Email">theupubcyprus@gmail.com</string>
 
 </resources>
