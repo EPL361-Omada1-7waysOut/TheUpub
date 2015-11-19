@@ -1,6 +1,7 @@
 package com.example.georg.theupub;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,10 +14,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 public class Events extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    ListView list;
+    String[] Titles;
+    String[] Descriptions;
 
+    //List of images to be put in the list
+    int [] images={
+            R.drawable.eventhothump,
+            R.drawable.lf,
+            R.drawable.fullmeta,
+            R.drawable.eventhothump,
+            R.drawable.fullmeta,
+            R.drawable.lf,
+            R.drawable.eventhothump,
+            R.drawable.lf,
+            R.drawable.fullmeta};
+
+    //List of images that will  be expanded
+    int [] imagesHD={
+            R.drawable.eventhow,
+            R.drawable.luffy,
+            R.drawable.fma,
+            R.drawable.eventhow,
+            R.drawable.fma,
+            R.drawable.luffy,
+            R.drawable.eventhow,
+            R.drawable.luffy,
+            R.drawable.fma};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +61,31 @@ public class Events extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        list=(ListView) findViewById(R.id.listView);
+        Resources res=getResources();
+        Titles=res.getStringArray(R.array.EventTitle);
+        Descriptions=res.getStringArray(R.array.EventDescription);
+
+        MyAdapter adapter=new MyAdapter(this,Titles,images,Descriptions);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                showImage(imagesHD[position]);
+            }
+        });
+
     }
 
+    public void showImage(int position){
+        //starting Activity ShowImage
+        //and passing the image to be shown
+        Intent intent=new Intent(this,ImageToShow.class);
+        intent.putExtra("intVariableName", position);
+        startActivity(intent);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -11,6 +11,8 @@
     <color name="SquareEnd">#606060</color>
     <color name="StaringText">#ffffff</color>
 
-    <color name="black_overlay">#66000000</color>
+    <color name="black_overlay">#660000</color>
 
+
+    <color name="BackListcolor">#000000</color>
 </resources>

@@ -48,6 +48,8 @@
             android:label="@string/title_activity_administrator"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity android:name=".ImageToShow" >
+        </activity>
     </application>
 
 </manifest>
