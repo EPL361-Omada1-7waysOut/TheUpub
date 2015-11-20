@@ -30,7 +30,7 @@ public class TheUpub extends AppCompatActivity {
     }
 
 public void startInfo(){
-    Intent intent=new Intent(this,AdministratorActivity.class);
+    Intent intent=new Intent(this,ProfileActivity.class);
     startActivity(intent);
     this.finish();
 }

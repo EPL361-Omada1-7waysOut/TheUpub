@@ -1,6 +1,7 @@
 package com.example.georg.theupub;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class TheMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Override
+    ListView list;
+    String[] Titles;
+    String[] Descriptions;
+
+    //List of images to be put in the list
+    int [] images={
+            R.drawable.keo,
+            R.drawable.cas,
+            R.drawable.frappe,
+            R.drawable.icedlatte,
+            R.drawable.icetea,
+            R.drawable.lem,
+            R.drawable.lembub,
+            R.drawable.coke,
+            R.drawable.orange,
+            R.drawable.carrot,
+            R.drawable.apple,
+            R.drawable.milkshake,
+            R.drawable.smoothie,
+            R.drawable.espr,
+            R.drawable.espr,
+            R.drawable.cyprus,
+            R.drawable.cap,
+            R.drawable.hotchoc,
+            R.drawable.inst,
+            R.drawable.latte,
+            R.drawable.mocha,
+            R.drawable.filter,
+
+ };
+
+
+ @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_menu);
@@ -32,6 +66,15 @@ public class TheMenu extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        list=(ListView) findViewById(R.id.listView);
+        Resources res=getResources();
+        Titles=res.getStringArray(R.array.MenuTitle);
+        Descriptions=res.getStringArray(R.array.MenuDescription);
+
+        MyAdapter adapter=new MyAdapter(this,Titles,images,Descriptions);
+        list.setAdapter(adapter);
     }
 
     @Override

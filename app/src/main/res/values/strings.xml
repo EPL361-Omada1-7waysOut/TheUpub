@@ -71,6 +71,68 @@
         <item>Press To Expand Offer9</item>
     </string-array>
 
+
+    <!--Menu Activity-->
+    <string-array name="MenuTitle">
+        <item>Keo</item>
+        <item>Casberg</item>
+        <item>Frappe</item>
+        <item>Iced Latte</item>
+        <item>Iced Tea</item>
+        <item>Frezzy Lemonade</item>
+        <item>Bubble Lemonade</item>
+        <item>Soft Drinks</item>
+
+        <item>Fresh Orange Juice</item>
+        <item>Fresh Carrot Juice</item>
+        <item>Fresh Apple Juice</item>
+        <item>Milkshake</item>
+        <item>Smoothies</item>
+
+        <item>Espresso</item>
+        <item>Double Espresso</item>
+        <item>Cypriot Coffee</item>
+        <item>Capuccino</item>
+        <item>Hot Chocolate</item>
+        <item>Coffee</item>
+        <item>Latte</item>
+        <item>Mocha</item>
+        <item>Filter Coffee</item>
+
+
+    </string-array>
+
+
+    <string-array name="MenuDescription">
+        <item>€2.00</item>
+        <item>€2.00</item>
+
+        <item>€1.25</item>
+        <item>€1.50</item>
+        <item>€2.00</item>
+        <item>€1.50</item>
+        <item>€1.50</item>
+        <item>€1.70</item>
+        <item>€1.00</item>
+
+        <item>€2.00</item>
+        <item>€2.50</item>
+        <item>€2.50</item>
+        <item>€2.50</item>
+        <item>€3.00</item>
+
+        <item>€1.00</item>
+        <item>€1.50</item>
+        <item>€0.90</item>
+        <item>€1.50</item>
+        <item>€2.50</item>
+        <item>€1.25</item>
+        <item>€2.00</item>
+        <item>€2.00</item>
+        <item>€1.50</item>
+
+    </string-array>
+
     <!--Event Activity-->
     <string-array name="EventTitle">
         <item>Event1</item>
