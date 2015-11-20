@@ -23,7 +23,7 @@ public class TheMenu extends AppCompatActivity
     String[] Titles;
     String[] Descriptions;
 
-    //List of images to be put in the listt
+    //List of images to be put in the list
     int [] images={
             R.drawable.keo,
             R.drawable.cas,
