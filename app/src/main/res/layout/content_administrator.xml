@@ -11,4 +11,19 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_administrator" tools:context="com.example.georg.theupub.UpubInfo">
 
+    <Button
+        android:id="@+id/qrButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan"
+        />
+
+    <TextView
+        android:id="@+id/scanOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qrButton"
+        android:background="#ffffff"/>
+
+
 </RelativeLayout>

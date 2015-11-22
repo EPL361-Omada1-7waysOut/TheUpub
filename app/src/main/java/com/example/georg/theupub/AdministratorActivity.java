@@ -13,9 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class AdministratorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Button mButton;
+    private TextView outScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,30 @@ public class AdministratorActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        // Scanner
+
+        mButton = (Button) findViewById(R.id.qrButton);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator integrator = new IntentIntegrator(AdministratorActivity.this);
+                integrator.initiateScan();
+            }
+        });
+
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null) {
+            String re = scanResult.getContents();
+            outScan = (TextView) findViewById(R.id.scanOut);
+            outScan.setText(re);
+        }
+        // else continue with any other code you need in the method
+
     }
 
     @Override
