@@ -77,5 +77,16 @@
         android:background="#ffffff"
         android:textSize="30dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/remPointsButton"
+        android:text="Remove Points From Member"
+        android:layout_below="@+id/typeRemPoints"
+        android:textColor="@color/StaringText"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+
 
 </RelativeLayout>

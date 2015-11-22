@@ -53,6 +53,7 @@ public class AdministratorActivity extends AppCompatActivity
         addPointsText =(EditText) findViewById(R.id.typeAddPoints);
         remPointsText =(EditText) findViewById(R.id.typeRemPoints);
         addPointsButton = (Button) findViewById(R.id.addPointsButton);
+        remPointsButton = (Button) findViewById(R.id.remPointsButton);
 
         // Scanner Scanner Scanner
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +87,14 @@ public class AdministratorActivity extends AppCompatActivity
             }
         });
 
+        // Removing Points
+        remPointsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removePoints(remPointsText);
+            }
+        });
+
     }
 
     public void addPoints(EditText T){
@@ -106,8 +115,22 @@ public class AdministratorActivity extends AppCompatActivity
         }
     }
 
-    public void removePoints(){
-
+    public void removePoints(EditText T){
+        String points = T.getText().toString();
+        int numPoints=0;
+        if(points.equals("")||points.equals("type points")){
+            numPoints=0;
+        }else{
+            //This will change after the database
+            numPoints = Integer.parseInt(points);
+            ProfileActivity.userPoints=ProfileActivity.userPoints-numPoints;
+            T.setText("");
+            Context context = getApplicationContext();
+            CharSequence text = "Points Removed";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     public void editTextClick(EditText T){
