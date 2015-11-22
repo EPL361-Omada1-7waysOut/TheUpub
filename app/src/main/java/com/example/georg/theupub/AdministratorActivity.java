@@ -42,7 +42,7 @@ public class AdministratorActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        // Scanner
+        // Scanner Scanner Scanner
 
         mButton = (Button) findViewById(R.id.qrButton);
         mButton.setOnClickListener(new View.OnClickListener() {
