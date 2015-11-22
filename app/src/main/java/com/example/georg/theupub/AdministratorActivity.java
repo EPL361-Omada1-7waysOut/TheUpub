@@ -76,8 +76,23 @@ public class AdministratorActivity extends AppCompatActivity
             }
         });
 
+        // Adding Points
+        addPointsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               addPoints();
+            }
+        });
+
     }
 
+    public void addPoints(){
+
+    }
+
+    public void removePoints(){
+
+    }
 
     public void editTextClick(EditText T){
         T.setText("");
