@@ -1,5 +1,6 @@
 package com.example.georg.theupub;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -80,14 +82,28 @@ public class AdministratorActivity extends AppCompatActivity
         addPointsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               addPoints();
+               addPoints(addPointsText);
             }
         });
 
     }
 
-    public void addPoints(){
-
+    public void addPoints(EditText T){
+        String points = T.getText().toString();
+        int numPoints=0;
+        if(points.equals("")||points.equals("type points")){
+            numPoints=0;
+        }else{
+            //This will change after the database
+            numPoints = Integer.parseInt(points);
+            ProfileActivity.userPoints=numPoints+ProfileActivity.userPoints;
+            T.setText("");
+            Context context = getApplicationContext();
+            CharSequence text = "Points Added";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     public void removePoints(){

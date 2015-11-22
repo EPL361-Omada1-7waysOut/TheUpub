@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -28,6 +29,8 @@ public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     String sample_user = "John Smith Id:1234";
+    public static  int userPoints=0;
+    private TextView pointText;
 
     /*
     * This method generates a Bitmap image from a
@@ -80,7 +83,9 @@ public class ProfileActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-
+        // Shows the points of the user
+        pointText = (TextView) findViewById(R.id.Points);
+        pointText.setText(userPoints+" Points");
     }
 
     @Override
