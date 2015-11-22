@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -24,6 +25,10 @@ public class AdministratorActivity extends AppCompatActivity
 
     private Button mButton;
     private TextView outScan;
+    private EditText addPointsText;
+    private EditText remPointsText;
+    private Button addPointsButton;
+    private Button remPointsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +46,13 @@ public class AdministratorActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Find Components
+        mButton = (Button) findViewById(R.id.qrButton);
+        addPointsText =(EditText) findViewById(R.id.typeAddPoints);
+        remPointsText =(EditText) findViewById(R.id.typeRemPoints);
+        addPointsButton = (Button) findViewById(R.id.addPointsButton);
 
         // Scanner Scanner Scanner
-
-        mButton = (Button) findViewById(R.id.qrButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +61,26 @@ public class AdministratorActivity extends AppCompatActivity
             }
         });
 
+        //Handle Text Click
+        addPointsText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                editTextClick(addPointsText);
+            }
+        });
+
+        remPointsText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                editTextClick(remPointsText);
+            }
+        });
+
+    }
+
+
+    public void editTextClick(EditText T){
+        T.setText("");
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {

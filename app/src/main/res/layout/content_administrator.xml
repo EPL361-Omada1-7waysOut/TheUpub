@@ -41,8 +41,8 @@
     <EditText
         android:text="type points"
         android:textStyle="italic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/typeAddPoints"
         android:layout_below="@+id/pointsToAddText"
         android:background="#ffffff"
@@ -60,7 +60,7 @@
 
     <TextView
         android:text="Points to Remove:"
-        android:id="@+id/typeRemPoints"
+        android:id="@+id/remPointsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addPointsButton"
@@ -70,9 +70,10 @@
     <EditText
         android:text="type points"
         android:textStyle="italic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/typeRemPoints"
+        android:id="@+id/typeRemPoints"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/remPointsText"
         android:background="#ffffff"
         android:textSize="30dp" />
 
