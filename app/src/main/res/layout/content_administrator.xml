@@ -15,7 +15,10 @@
         android:id="@+id/qrButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan"
+        android:text="Scan Member"
+        android:textColor="@color/StaringText"
+        android:textSize="30dp"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -23,7 +26,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/qrButton"
-        android:background="#ffffff"/>
+        android:background="#ffffff"
+        />
+
+    <TextView
+        android:text="Points to Add:"
+        android:id="@+id/pointsToAddText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scanOut"
+        android:background="#ffffff"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:text="type points"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeAddPoints"
+        android:layout_below="@+id/pointsToAddText"
+        android:background="#ffffff"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addPointsButton"
+        android:text="Add Points To Member"
+        android:layout_below="@+id/typeAddPoints"
+        android:textColor="@color/StaringText"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:text="Points to Remove:"
+        android:id="@+id/typeRemPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addPointsButton"
+        android:background="#ffffff"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:text="type points"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeRemPoints"
+        android:background="#ffffff"
+        android:textSize="30dp" />
 
 
 </RelativeLayout>
