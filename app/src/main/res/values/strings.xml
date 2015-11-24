@@ -74,6 +74,7 @@
 
     <!--Menu Activity-->
     <string-array name="MenuTitle">
+        <item>Shisha</item>
         <item>Keo</item>
         <item>Casberg</item>
         <item>Frappe</item>
@@ -104,6 +105,7 @@
 
 
     <string-array name="MenuDescription">
+        <item>€8.00</item>
         <item>€2.00</item>
         <item>€2.00</item>
 
