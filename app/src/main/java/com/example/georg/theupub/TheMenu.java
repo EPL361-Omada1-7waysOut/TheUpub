@@ -25,6 +25,7 @@ public class TheMenu extends AppCompatActivity
 
     //List of images to be put in the listt
     int [] images={
+            R.drawable.shisha,
             R.drawable.keo,
             R.drawable.cas,
             R.drawable.frappe,
@@ -39,7 +40,7 @@ public class TheMenu extends AppCompatActivity
             R.drawable.milkshake,
             R.drawable.smoothie,
             R.drawable.espr,
-            R.drawable.espr,
+            R.drawable.dubespr,
             R.drawable.cyprus,
             R.drawable.cap,
             R.drawable.hotchoc,
@@ -47,6 +48,7 @@ public class TheMenu extends AppCompatActivity
             R.drawable.latte,
             R.drawable.mocha,
             R.drawable.filter,
+
 
  };
 
