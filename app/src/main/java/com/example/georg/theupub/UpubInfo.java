@@ -2,9 +2,7 @@ package com.example.georg.theupub;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,9 +11,59 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
 
 public class UpubInfo extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
+    public void getInfo() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        String dbURL = "jdbc:jtds:sqlserver://apollo.in.cs.ucy.ac.cy:1433";
+        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        Properties properties = new Properties();
+        properties.put("user", "upub");
+        properties.put("password", "XuZ3drup" );
+        properties.put("databaseName","upub");
+        try {
+            conn = DriverManager.getConnection(dbURL, properties);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String SQL = "Select * From [dbo].[Info]" ;
+        System.out.print("done!");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        if(rs.next()){
+            final TextView Address = (TextView) findViewById(R.id.Andress);
+            Address.setText(rs.getString(1));
+            final TextView OpenHours=(TextView)findViewById(R.id.OpenHours);
+            OpenHours.setText(rs.getString(2));
+            final TextView phone = (TextView) findViewById(R.id.Telephone);
+            phone.setText(rs.getString(3));
+            final TextView email=(TextView)findViewById(R.id.Email);
+            email.setText(rs.getString(4));
+            final TextView services = (TextView) findViewById(R.id.Services);
+            services.setText(rs.getString(5));
+            final TextView Managers=(TextView)findViewById(R.id.Managers);
+            Managers.setText(rs.getString(6));
+            final TextView Parking = (TextView) findViewById(R.id.Parking);
+            Parking.setText(rs.getString(7));
+
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +72,12 @@ public class UpubInfo extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        try {
+                getInfo();
+            }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
