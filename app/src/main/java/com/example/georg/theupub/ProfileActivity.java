@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -25,10 +26,17 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
 public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String sample_user = "John Smith Id:1234";
+    String sample_user = "1234";
     public static  int userPoints=0;
     private TextView pointText;
 
@@ -49,14 +57,44 @@ public class ProfileActivity extends AppCompatActivity
         }
         return bmp;
     }
+    public void getPoints() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
+        String dbURL = "jdbc:jtds:sqlserver://apollo.in.cs.ucy.ac.cy:1433";
+        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        Properties properties = new Properties();
+        properties.put("user", "upub");
+        properties.put("password", "XuZ3drup" );
+        properties.put("databaseName","upub");
+        try {
+            conn = DriverManager.getConnection(dbURL, properties);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String SQL = "Select * From [dbo].[User] where ID='"+sample_user+"'" ;
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        if(rs.next()){
+            System.out.print(rs.getInt(7));
+            userPoints=rs.getInt(7);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        try {
+            getPoints();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
