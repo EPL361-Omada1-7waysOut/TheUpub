@@ -3,6 +3,7 @@ package com.example.georg.theupub;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -22,6 +23,14 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
 public class AdministratorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,7 +40,7 @@ public class AdministratorActivity extends AppCompatActivity
     private EditText remPointsText;
     private Button addPointsButton;
     private Button remPointsButton;
-
+    private  String re;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +105,120 @@ public class AdministratorActivity extends AppCompatActivity
         });
 
     }
+    public void addPointss(int numpoints){
+        int currentpoints = 0;
+        Connection conn = null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
+        String dbURL = "jdbc:jtds:sqlserver://apollo.in.cs.ucy.ac.cy:1433";
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Properties properties = new Properties();
+        properties.put("user", "upub");
+        properties.put("password", "XuZ3drup" );
+        properties.put("databaseName","upub");
+        try {
+            conn = DriverManager.getConnection(dbURL, properties);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String SQL = "Select * From [dbo].[User] where ID='"+re+"'" ;
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery(SQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            if(rs.next()){
+                System.out.print(rs.getInt(7));
+                currentpoints=rs.getInt(7);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String pro="EXEC dbo.addpoints ?,?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(pro);
+            ps.setEscapeProcessing(true);
+            ps.setInt(1, Integer.parseInt(re));
+            ps.setInt(2,currentpoints+numpoints);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    public void RemovePointss(int numpoints){
+        int currentpoints = 0;
+        Connection conn = null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        String dbURL = "jdbc:jtds:sqlserver://apollo.in.cs.ucy.ac.cy:1433";
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Properties properties = new Properties();
+        properties.put("user", "upub");
+        properties.put("password", "XuZ3drup" );
+        properties.put("databaseName","upub");
+        try {
+            conn = DriverManager.getConnection(dbURL, properties);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String SQL = "Select * From [dbo].[User] where ID='"+re+"'" ;
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery(SQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            if(rs.next()){
+                System.out.print(rs.getInt(7));
+                currentpoints=rs.getInt(7);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String pro="EXEC dbo.addpoints ?,?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(pro);
+            ps.setEscapeProcessing(true);
+            ps.setInt(1, Integer.parseInt(re));
+            ps.setInt(2,currentpoints-numpoints);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     public void addPoints(EditText T){
         String points = T.getText().toString();
         int numPoints=0;
@@ -105,6 +227,7 @@ public class AdministratorActivity extends AppCompatActivity
         }else{
             //This will change after the database
             numPoints = Integer.parseInt(points);
+            addPointss(numPoints);
             ProfileActivity.userPoints=numPoints+ProfileActivity.userPoints;
             T.setText("");
             Context context = getApplicationContext();
@@ -123,6 +246,7 @@ public class AdministratorActivity extends AppCompatActivity
         }else{
             //This will change after the database
             numPoints = Integer.parseInt(points);
+            RemovePointss(numPoints);
             ProfileActivity.userPoints=ProfileActivity.userPoints-numPoints;
             T.setText("");
             Context context = getApplicationContext();
@@ -140,7 +264,7 @@ public class AdministratorActivity extends AppCompatActivity
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null) {
-            String re = scanResult.getContents();
+             re = scanResult.getContents();
             outScan = (TextView) findViewById(R.id.scanOut);
             outScan.setText(re);
         }
