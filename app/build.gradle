@@ -29,4 +29,5 @@ dependencies {
     //Dependencies for QR
     compile 'com.journeyapps:zxing-android-embedded:3.0.3@aar'
     //compile 'com.google.zxing:core:3.2.0'
+    compile files('src/main/java/com/example/georg/theupub/jtds-1.3.0.jar')
 }
