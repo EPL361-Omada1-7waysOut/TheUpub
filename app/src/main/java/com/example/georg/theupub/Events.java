@@ -25,27 +25,22 @@ public class Events extends AppCompatActivity
 
     //List of images to be put in the list
     int [] images={
+            R.drawable.musicthump,
+            R.drawable.tseliosthump,
             R.drawable.eventhothump,
-            R.drawable.lf,
-            R.drawable.fullmeta,
-            R.drawable.eventhothump,
-            R.drawable.fullmeta,
-            R.drawable.lf,
-            R.drawable.eventhothump,
-            R.drawable.lf,
-            R.drawable.fullmeta};
+            R.drawable.dancethump,
+            R.drawable.skakithump,
+            R.drawable.mikroslabrosthump};
 
     //List of images that will  be expanded
     int [] imagesHD={
+            R.drawable.music,
+            R.drawable.tselios,
             R.drawable.eventhow,
-            R.drawable.luffy,
-            R.drawable.fma,
-            R.drawable.eventhow,
-            R.drawable.fma,
-            R.drawable.luffy,
-            R.drawable.eventhow,
-            R.drawable.luffy,
-            R.drawable.fma};
+            R.drawable.dance,
+            R.drawable.skaki,
+            R.drawable.mikroslabros
+            };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

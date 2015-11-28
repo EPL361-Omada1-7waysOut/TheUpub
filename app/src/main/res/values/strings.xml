@@ -50,28 +50,13 @@
 
     <!--Offer Activity-->
     <string-array name="OfferTitle">
-        <item>Offer1</item>
-        <item>Offer2</item>
-        <item>Offer3</item>
-        <item>Offer4</item>
-        <item>Offer5</item>
-        <item>Offer6</item>
-        <item>Offer7</item>
-        <item>Offer8</item>
-        <item>Offer9</item>
+        <item>Offer Before 12:00</item>
+
     </string-array>
 
 
     <string-array name="OfferDescription">
         <item>Press To Expand Offer1</item>
-        <item>Press To Expand Offer2</item>
-        <item>Press To Expand Offer3</item>
-        <item>Press To Expand Offer4</item>
-        <item>Press To Expand Offer5</item>
-        <item>Press To Expand Offer6</item>
-        <item>Press To Expand Offer7</item>
-        <item>Press To Expand Offer8</item>
-        <item>Press To Expand Offer9</item>
     </string-array>
 
 
@@ -140,22 +125,16 @@
 
     <!--Event Activity-->
     <string-array name="EventTitle">
-        <item>Event1</item>
-        <item>Event2</item>
-        <item>Event3</item>
-        <item>Event4</item>
-        <item>Event5</item>
-        <item>Event6</item>
-        <item>Event7</item>
-        <item>Event8</item>
-        <item>Event9</item>
+        <item>Music Club</item>
+        <item>Giannis Tselios</item>
+        <item>Halloween</item>
+        <item>Dance Club</item>
+        <item>Tichu</item>
+        <item>Mikros Lambros</item>
     </string-array>
 
 
     <string-array name="EventDescription">
-        <item>Press To Expand Event</item>
-        <item>Press To Expand Event</item>
-        <item>Press To Expand Event</item>
         <item>Press To Expand Event</item>
         <item>Press To Expand Event</item>
         <item>Press To Expand Event</item>
