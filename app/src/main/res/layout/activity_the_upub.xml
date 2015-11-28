@@ -24,11 +24,11 @@
         android:layout_gravity="center_horizontal|top" />
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/ButtonWidth"
+        android:layout_height="@dimen/ButtonHeight"
         android:text="@string/EnterButton"
         android:textColor="@color/StaringText"
-        android:background="@color/SquareEnd"
+        android:background="@color/ButtonColor"
         android:textSize="@dimen/TextSize"
         android:textStyle="bold"
         android:id="@+id/EnterButton"

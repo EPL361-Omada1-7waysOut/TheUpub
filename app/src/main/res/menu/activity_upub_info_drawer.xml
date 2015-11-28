@@ -13,6 +13,8 @@
             android:title="@string/Profile" />
         <item android:id="@+id/nav_Info" android:icon="@drawable/info"
         android:title="@string/Info" />
+        <item android:id="@+id/nav_Logout" android:icon="@drawable/key"
+            android:title="@string/Logout" />
     </group>
 
 

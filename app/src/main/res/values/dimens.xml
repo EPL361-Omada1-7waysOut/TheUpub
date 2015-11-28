@@ -9,6 +9,16 @@
 
     <dimen name="TextSize">50dp</dimen>
 
+
+    <!--Info Activity  Dimensions-->
+    <dimen name="ButtonHeight">120dp</dimen>
+    <dimen name="ButtonWidth">200dp</dimen>
+
+    <!--ENter Activity  Dimensions-->
+    <dimen name="ButtonHeightEN">160dp</dimen>
+    <dimen name="ButtonWidthEN">300dp</dimen>
+    <dimen name="TextSizeEN">30dp</dimen>
+
     <!--Info Activity  Dimensions-->
     <dimen name="InfoSize">25dp</dimen>
     <dimen name="TitleSize">40dp</dimen>

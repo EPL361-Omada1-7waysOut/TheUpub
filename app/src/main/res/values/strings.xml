@@ -11,11 +11,14 @@
     <string name="Menu">Menu</string>
     <string name="Events">Events</string>
     <string name="Profile">Profile</string>
+    <string name="Logout">Logout</string>
 
 
     <!--Intro screen titles-->
     <string name="title_activity_the_upub">TheUpub</string>
     <string name="EnterButton">ENTER</string>
+    <string name="ENterAdm">Enter As\nAdministrator</string>
+    <string name="ENterProf">Enter As\nMember</string>
 
 
     <!--Titles of Activities-->

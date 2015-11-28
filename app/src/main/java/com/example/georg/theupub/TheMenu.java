@@ -125,8 +125,15 @@ public class TheMenu extends AppCompatActivity
             startOffers();
         } else if (id == R.id.nav_Events) {//to events activity
             startEvents();
-        } else if (id == R.id.nav_Profile) {//to events activity
-            startProfile();
+        } else if (id == R.id.nav_Profile) {//to profile activity
+            if(LoginActivity.getISadmin()) {
+                startAdmin();
+            }
+            else {
+                startProfile();
+            }
+        } else if (id == R.id.nav_Logout) {//to Logout activity
+            startLogout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -162,4 +169,17 @@ public class TheMenu extends AppCompatActivity
         startActivity(intent);
         this.finish();
     }
+
+    public void startAdmin(){//to Admin activity
+        Intent intent=new Intent(this,AdministratorActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void startLogout(){//to Login activity
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
 }

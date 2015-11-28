@@ -15,4 +15,6 @@
 
 
     <color name="BackListcolor">#000000</color>
+
+    <color name="ButtonColor">#606060</color>
 </resources>
