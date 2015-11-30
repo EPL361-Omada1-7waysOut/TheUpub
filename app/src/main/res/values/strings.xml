@@ -51,12 +51,14 @@
     <!--Offer Activity-->
     <string-array name="OfferTitle">
         <item>Offer Before 12:00</item>
+        <item>View All games Here</item>
 
     </string-array>
 
 
     <string-array name="OfferDescription">
-        <item>Press To Expand Offer1</item>
+        <item>Press To Expand Offer</item>
+        <item>Press To Expand Offer</item>
     </string-array>
 
 
