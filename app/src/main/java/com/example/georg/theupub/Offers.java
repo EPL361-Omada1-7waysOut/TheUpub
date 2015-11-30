@@ -37,11 +37,15 @@ public class Offers extends AppCompatActivity
     //List of images to be put in the list
     int [] images={
             R.drawable.offerthump,
+            R.drawable.offerkeothump,
+            R.drawable.offercasthump,
             R.drawable.ballthump};
 
     //List of images that will  be expanded
     int [] imagesHD={
             R.drawable.upubhd,
+            R.drawable.offerkeo,
+            R.drawable.offercas,
             R.drawable.ball};
     @Override
     protected void onCreate(Bundle savedInstanceState) {

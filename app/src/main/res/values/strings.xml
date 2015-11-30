@@ -51,12 +51,16 @@
     <!--Offer Activity-->
     <string-array name="OfferTitle">
         <item>Offer Before 12:00</item>
+        <item>Keo Offer</item>
+        <item>Carlsberg Offer</item>
         <item>View All games Here</item>
 
     </string-array>
 
 
     <string-array name="OfferDescription">
+        <item>Press To Expand Offer</item>
+        <item>Press To Expand Offer</item>
         <item>Press To Expand Offer</item>
         <item>Press To Expand Offer</item>
     </string-array>
@@ -66,7 +70,7 @@
     <string-array name="MenuTitle">
         <item>Shisha</item>
         <item>Keo</item>
-        <item>Casberg</item>
+        <item>Carlsberg</item>
         <item>Frappe</item>
         <item>Iced Latte</item>
         <item>Iced Tea</item>
