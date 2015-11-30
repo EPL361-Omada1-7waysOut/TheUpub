@@ -10,11 +10,11 @@
         <item android:id="@+id/nav_Events" android:icon="@drawable/events"
             android:title="@string/Events" />
         <item android:id="@+id/nav_Profile" android:icon="@drawable/profile"
-            android:title="@string/Profile" />
+            android:title="@string/Profile" android:visible="false" />
         <item android:id="@+id/nav_Info" android:icon="@drawable/info"
         android:title="@string/Info" />
         <item android:id="@+id/nav_Logout" android:icon="@drawable/key"
-            android:title="@string/Logout" />
+            android:title="@string/Logout" android:visible="false" />
     </group>
 
 

@@ -72,12 +72,12 @@ public class UpubInfo extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        try {
-                getInfo();
-            }
-        catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//                getInfo();
+//            }
+//        catch (ClassNotFoundException | SQLException e) {
+//            e.printStackTrace();
+//        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

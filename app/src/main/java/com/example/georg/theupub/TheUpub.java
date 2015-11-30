@@ -30,7 +30,7 @@ public class TheUpub extends AppCompatActivity {
     }
 
 public void startInfo(){
-    Intent intent=new Intent(this,LoginActivity.class);
+    Intent intent=new Intent(this,TheMenu.class);
     startActivity(intent);
     this.finish();
 }
