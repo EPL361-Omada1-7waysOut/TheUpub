@@ -1,5 +1,6 @@
 package com.example.georg.theupub;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -12,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,6 +28,7 @@ public class UpubInfo extends AppCompatActivity
 
 
     public void getInfo() throws SQLException, ClassNotFoundException {
+        boolean flag=true;
         Connection conn = null;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
@@ -39,29 +43,34 @@ public class UpubInfo extends AppCompatActivity
         try {
             conn = DriverManager.getConnection(dbURL, properties);
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            flag=false;
+            Context context = getApplicationContext();
+            CharSequence text = "Cannot connect to DataBase. Info may not be up to date!";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }if(flag){
         String SQL = "Select * From [dbo].[Info]" ;
         System.out.print("done!");
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
-        if(rs.next()){
+        if(rs.next()) {
             final TextView Address = (TextView) findViewById(R.id.Andress);
             Address.setText(rs.getString(1));
-            final TextView OpenHours=(TextView)findViewById(R.id.OpenHours);
+            final TextView OpenHours = (TextView) findViewById(R.id.OpenHours);
             OpenHours.setText(rs.getString(2));
             final TextView phone = (TextView) findViewById(R.id.Telephone);
             phone.setText(rs.getString(3));
-            final TextView email=(TextView)findViewById(R.id.Email);
+            final TextView email = (TextView) findViewById(R.id.Email);
             email.setText(rs.getString(4));
             final TextView services = (TextView) findViewById(R.id.Services);
             services.setText(rs.getString(5));
-            final TextView Managers=(TextView)findViewById(R.id.Managers);
+            final TextView Managers = (TextView) findViewById(R.id.Managers);
             Managers.setText(rs.getString(6));
             final TextView Parking = (TextView) findViewById(R.id.Parking);
             Parking.setText(rs.getString(7));
 
-
+        }
         }
     }
 

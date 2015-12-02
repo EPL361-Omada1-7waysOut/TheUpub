@@ -105,7 +105,7 @@ public class AdministratorActivity extends AppCompatActivity
         });
 
     }
-    public void addPointss(int numpoints){
+    public boolean addPointss(int numpoints){
         int currentpoints = 0;
         Connection conn = null;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -116,7 +116,7 @@ public class AdministratorActivity extends AppCompatActivity
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+          return false;
         }
         Properties properties = new Properties();
         properties.put("user", "upub");
@@ -125,20 +125,20 @@ public class AdministratorActivity extends AppCompatActivity
         try {
             conn = DriverManager.getConnection(dbURL, properties);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         String SQL = "Select * From [dbo].[User] where ID='"+re+"'" ;
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         ResultSet rs = null;
         try {
             rs = stmt.executeQuery(SQL);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         try {
             if(rs.next()){
@@ -146,7 +146,7 @@ public class AdministratorActivity extends AppCompatActivity
                 currentpoints=rs.getInt(7);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         String pro="EXEC dbo.addpoints ?,?";
         PreparedStatement ps = null;
@@ -157,12 +157,13 @@ public class AdministratorActivity extends AppCompatActivity
             ps.setInt(2,currentpoints+numpoints);
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
-
+    return true;
 
     }
-    public void RemovePointss(int numpoints){
+    public boolean RemovePointss(int numpoints){
+
         int currentpoints = 0;
         Connection conn = null;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -173,7 +174,7 @@ public class AdministratorActivity extends AppCompatActivity
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            return false;
         }
         Properties properties = new Properties();
         properties.put("user", "upub");
@@ -182,20 +183,20 @@ public class AdministratorActivity extends AppCompatActivity
         try {
             conn = DriverManager.getConnection(dbURL, properties);
         } catch (SQLException e) {
-            e.printStackTrace();
+         return false;
         }
         String SQL = "Select * From [dbo].[User] where ID='"+re+"'" ;
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
         } catch (SQLException e) {
-            e.printStackTrace();
+          return false;
         }
         ResultSet rs = null;
         try {
             rs = stmt.executeQuery(SQL);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         try {
             if(rs.next()){
@@ -203,7 +204,7 @@ public class AdministratorActivity extends AppCompatActivity
                 currentpoints=rs.getInt(7);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         String pro="EXEC dbo.addpoints ?,?";
         PreparedStatement ps = null;
@@ -214,10 +215,10 @@ public class AdministratorActivity extends AppCompatActivity
             ps.setInt(2,currentpoints-numpoints);
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
 
-
+    return true;
     }
     public void addPoints(EditText T){
         String points = T.getText().toString();
@@ -227,18 +228,27 @@ public class AdministratorActivity extends AppCompatActivity
         }else{
             //This will change after the database
             numPoints = Integer.parseInt(points);
-            addPointss(numPoints);
-            ProfileActivity.userPoints=numPoints+ProfileActivity.userPoints;
-            T.setText("");
-            Context context = getApplicationContext();
-            CharSequence text = "Points Added";
-            int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            if(addPointss(numPoints)) {
+                ProfileActivity.userPoints = numPoints + ProfileActivity.userPoints;
+                T.setText("");
+                Context context = getApplicationContext();
+                CharSequence text = "Points Added";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+            else{
+                Context context = getApplicationContext();
+                CharSequence text = "Can't add points. No connection to the DataBase!";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
     }
 
     public void removePoints(EditText T){
+
         String points = T.getText().toString();
         int numPoints=0;
         if(points.equals("")||points.equals("type points")){
@@ -246,14 +256,21 @@ public class AdministratorActivity extends AppCompatActivity
         }else{
             //This will change after the database
             numPoints = Integer.parseInt(points);
-            RemovePointss(numPoints);
+            if(RemovePointss(numPoints)){
             ProfileActivity.userPoints=ProfileActivity.userPoints-numPoints;
             T.setText("");
             Context context = getApplicationContext();
             CharSequence text = "Points Removed";
             int duration = Toast.LENGTH_LONG;
             Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            toast.show();}
+            else{
+                Context context = getApplicationContext();
+                CharSequence text = "Can't remove points. No connection to the DataBase!";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.georg.theupub;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -57,14 +59,18 @@ public class ProfileActivity extends AppCompatActivity
         }
         return bmp;
     }
-    public void getPoints() throws SQLException, ClassNotFoundException {
+    public boolean getPoints() {
         Connection conn = null;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         String dbURL = "jdbc:jtds:sqlserver://apollo.in.cs.ucy.ac.cy:1433";
-        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
         Properties properties = new Properties();
         properties.put("user", "upub");
         properties.put("password", "XuZ3drup" );
@@ -72,15 +78,30 @@ public class ProfileActivity extends AppCompatActivity
         try {
             conn = DriverManager.getConnection(dbURL, properties);
         } catch (SQLException e) {
-            e.printStackTrace();
+           return false;
         }
         String SQL = "Select * From [dbo].[User] where ID='"+sample_user+"'" ;
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-        if(rs.next()){
-            System.out.print(rs.getInt(7));
-            userPoints=rs.getInt(7);
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            return false;
         }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery(SQL);
+        } catch (SQLException e) {
+            return false;
+        }
+        try {
+            if(rs.next()){
+                System.out.print(rs.getInt(7));
+                userPoints=rs.getInt(7);
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,13 +109,14 @@ public class ProfileActivity extends AppCompatActivity
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        try {
-            getPoints();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
+            if(!getPoints()) {
+                Context context = getApplicationContext();
+                CharSequence text = "Can't get points. Can't reach database!";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
