@@ -220,8 +220,32 @@ public class AdministratorActivity extends AppCompatActivity
 
     return true;
     }
+    public boolean checkPointsString(String s){
+        for(int i=0;i<s.length();i++){
+            if((s.charAt(i)!='0')&&
+            (s.charAt(i)!='1')&&
+            (s.charAt(i)!='2')&&
+            (s.charAt(i)!='3')&&
+            (s.charAt(i)!='4')&&
+            (s.charAt(i)!='5')&&
+            (s.charAt(i)!='6')&&
+            (s.charAt(i)!='7')&&
+            (s.charAt(i)!='8')&&
+            (s.charAt(i)!='9')
+            )return false;
+        }
+        return true;
+    }
     public void addPoints(EditText T){
         String points = T.getText().toString();
+        if(!checkPointsString(points)){
+            Context context = getApplicationContext();
+            CharSequence text = "Points should be characters from 0-9";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return;
+        }
         int numPoints=0;
         if(points.equals("")||points.equals("type points")){
             numPoints=0;
@@ -250,6 +274,14 @@ public class AdministratorActivity extends AppCompatActivity
     public void removePoints(EditText T){
 
         String points = T.getText().toString();
+        if(!checkPointsString(points)){
+            Context context = getApplicationContext();
+            CharSequence text = "Points should be characters from 0-9";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return;
+        }
         int numPoints=0;
         if(points.equals("")||points.equals("type points")){
             numPoints=0;
