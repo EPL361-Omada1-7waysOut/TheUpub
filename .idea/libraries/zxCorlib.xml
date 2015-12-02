@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="zxCorlib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/java/com/example/georg/theupub/zxCorlib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

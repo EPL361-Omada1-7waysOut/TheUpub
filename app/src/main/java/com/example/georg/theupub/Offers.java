@@ -37,26 +37,12 @@ public class Offers extends AppCompatActivity
     //List of images to be put in the list
     int [] images={
             R.drawable.offerthump,
-            R.drawable.lf,
-            R.drawable.fullmeta,
-            R.drawable.offerthump,
-            R.drawable.fullmeta,
-            R.drawable.lf,
-            R.drawable.offerthump,
-            R.drawable.lf,
-            R.drawable.fullmeta};
+            R.drawable.ballthump};
 
     //List of images that will  be expanded
     int [] imagesHD={
             R.drawable.upubhd,
-            R.drawable.luffy,
-            R.drawable.fma,
-            R.drawable.upubhd,
-            R.drawable.fma,
-            R.drawable.luffy,
-            R.drawable.upubhd,
-            R.drawable.luffy,
-            R.drawable.fma};
+            R.drawable.ball};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,8 +131,15 @@ public class Offers extends AppCompatActivity
             startOffers();
         } else if (id == R.id.nav_Events) {//to events activity
             startEvents();
-        } else if (id == R.id.nav_Profile) {//to events activity
-            startProfile();
+        } else if (id == R.id.nav_Profile) {//to profile activity
+            if(LoginActivity.getISadmin()) {
+                startAdmin();
+            }
+            else {
+                startProfile();
+            }
+        } else if (id == R.id.nav_Logout) {//to Logout activity
+            startLogout();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -182,4 +175,17 @@ public class Offers extends AppCompatActivity
         startActivity(intent);
         this.finish();
     }
+
+    public void startAdmin(){//to Admin activity
+        Intent intent=new Intent(this,AdministratorActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void startLogout(){//to Login activity
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
 }

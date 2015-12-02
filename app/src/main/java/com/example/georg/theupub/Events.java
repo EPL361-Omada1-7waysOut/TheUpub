@@ -25,27 +25,22 @@ public class Events extends AppCompatActivity
 
     //List of images to be put in the list
     int [] images={
+            R.drawable.musicthump,
+            R.drawable.tseliosthump,
             R.drawable.eventhothump,
-            R.drawable.lf,
-            R.drawable.fullmeta,
-            R.drawable.eventhothump,
-            R.drawable.fullmeta,
-            R.drawable.lf,
-            R.drawable.eventhothump,
-            R.drawable.lf,
-            R.drawable.fullmeta};
+            R.drawable.dancethump,
+            R.drawable.skakithump,
+            R.drawable.mikroslabrosthump};
 
     //List of images that will  be expanded
     int [] imagesHD={
+            R.drawable.music,
+            R.drawable.tselios,
             R.drawable.eventhow,
-            R.drawable.luffy,
-            R.drawable.fma,
-            R.drawable.eventhow,
-            R.drawable.fma,
-            R.drawable.luffy,
-            R.drawable.eventhow,
-            R.drawable.luffy,
-            R.drawable.fma};
+            R.drawable.dance,
+            R.drawable.skaki,
+            R.drawable.mikroslabros
+            };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,9 +127,16 @@ public class Events extends AppCompatActivity
             startOffers();
         } else if (id == R.id.nav_Events) {//to events activity
             startEvents();
-        } else if (id == R.id.nav_Profile) {//to events activity
-            startProfile();
-        }
+        } else if (id == R.id.nav_Profile) {//to profile activity
+            if(LoginActivity.getISadmin()) {
+                startAdmin();
+            }
+            else {
+                startProfile();
+            }
+        } else if (id == R.id.nav_Logout) {//to Logout activity
+                startLogout();
+         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -169,4 +171,17 @@ public class Events extends AppCompatActivity
         startActivity(intent);
         this.finish();
     }
+
+    public void startAdmin(){//to Admin activity
+        Intent intent=new Intent(this,AdministratorActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void startLogout(){//to Login activity
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
 }
